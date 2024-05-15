@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <style>
+      body {
+        background-position: center;
+        background-image: url('{{ url_for('static', filename='assets/roadWithCherryBlossomTree.png') }}');
+        background-size: cover; /* Adjusted to cover the entire container */
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        width: 100%;
+      }
+      .form__container {
+        width: 100%;
+        margin: 2rem auto; /* Center the container horizontally */
+      }
+      .input-group {
+        border-radius: 10%;
+        width: 50%;
+        margin: 0 auto; /* Center the input group horizontally */
+      }
+     .container__search-bar{
+        background-color:background-color rgb(248, 249, 250);
+        transition: background-color 0.3s; /* Smooth transition on hover */
+     }
+     .container__search-bar:hover {
+        background-color: #f3d9e6; /* Light pink background color on hover */
+     }
+  </style>
+</head>
+<body>
+
+{% include 'navbar.html' %}
+{% include 'searchBar.html' %}
+{% include 'blog.html' %}
+
+<!-- Include Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

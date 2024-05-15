@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+
+        .blog {
+            flex: 2;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-right: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .blog h3 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .blog img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .blog p {
+            line-height: 1.6;
+        }
+
+        .comments {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        #commentForm {
+            margin-top: 20px;
+        }
+
+        #commentForm textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #commentForm button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .comment {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="blog" id="blog-content">
+            {%if content%}
+                <h1>{{topic}}</h1><br>
+                <p>{{content}}</p>
+            {%else%}
+                <h1>No Topic</h1>
+            {%endif%}
+        </div>
+        <div class="comments">
+            <h2>Comments</h2>
+            <form id="commentForm">
+                <label for="comment">Leave a comment:</label><br>
+                <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br>
+                <button type="submit">Submit</button>
+            </form><br>
+            <button><a href="/">Return</a></button>
+            <div id="comments">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+            // Event listener for comment form submission
+            $('#commentForm').submit(function (event) {
+                event.preventDefault();  // Prevent form submission
+
+                var commentText = $('#comment').val();  // Get the comment text
+
+                // Create a new comment element
+                var commentElement = $('<div>').addClass('comment').append($('<p>').text(commentText));
+
+                // Append the comment element to the comments section
+                $('#comments').append(commentElement);
+
+                // Clear the comment textarea
+                $('#comment').val('');
+            });
+        });
+    </script>
+</body>
+</html>

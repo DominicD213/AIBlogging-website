@@ -1,0 +1,13 @@
+<form class="form__container-inline" action="{{ url_for('generate_post') }}" method="POST">
+  <div class="container">
+    <div class="form__container">
+      <div class="input-group">
+        <input type="search" class="form-control search-input" placeholder="Enter a topic" aria-label="Topic" aria-describedby="search-btn" name="topic">
+        <div class="input-group-append">
+          <button class="container__search-bar" type="submit" id="search-btn">Generate Post</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+

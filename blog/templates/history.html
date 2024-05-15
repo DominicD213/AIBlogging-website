@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog History</title>
+    <!-- Add any additional meta tags, CSS links, or other head content here -->
+</head>
+<body>
+    <h1>Blog History</h1>
+    <h2>Welcome, {{ user.username }}!</h2>
+    
+    {% if user_blogs %}
+        <h3>Your Blog Posts:</h3>
+        <ul>
+            {% for blogpost in user_blogs %}
+                <li>
+                    <strong>{{ blogpost.title }}</strong><br>
+                    {{ blogpost.content }}<br>
+                    <small>Posted on {{ blogpost.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You haven't written any blog posts yet.</p>
+    {% endif %}
+</body>
+</html>
